@@ -104,12 +104,18 @@
     function handleCheck(e) {
       // Check if they have the shift key down AND that they are checking it
       let inBetween = false;
+      
       if (e.shiftKey && this.checked) {
         // do the thing
         // loop over every box
         checkboxes.forEach(check => {
           if (check === this || check === lastChecked) {
             inBetween = !inBetween;
+            console.log('Starting to check in between');
+          }
+
+          if (inBetween) {
+            check.checked = true;
           }
         });
       }
